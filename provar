@@ -1,0 +1,93 @@
+import pygame
+
+ANCHO=800
+ALTO=600
+
+#---Colores
+
+NEGRO=(0,0,0)
+BLANCO=(255,255,255)
+ROJO=(255,0,0)
+VERDE=(0,255,0)
+AZUL=(0,0,255)
+
+#---iniciar pygame
+pygame.init()
+
+#---Crear ventana
+ventana=pygame.display.set_mode((ANCHO,ALTO))
+
+#---Definir una fuente de texto
+fuente=pygame.font.SysFont("Arial", 30)
+
+#---Crear reloj
+reloj=pygame.time.Clock()
+
+#---Mouse ( 1= visible, 0=no visible)
+pygame.mouse.set_visible(1)
+
+#---Título
+pygame.display.set_caption("FPS")
+
+#---Zona de variables del programa
+boton= (350, 150, 100, 50)
+
+test_surface = pygame.Surface((100, 200))
+test_surface.fill('Red')
+
+#---Velocidad
+hola=0
+
+
+#---Bucle principal
+
+jugar=True
+
+while jugar:
+    for event in pygame.event.get():
+        if event.type==pygame.QUIT:
+            jugar=False
+    
+    ventana.fill(NEGRO)
+
+    #---Zona lógica
+   
+   
+    if event.type == pygame.MOUSEBUTTONDOWN and event.button==1:
+        
+        print("eoeoeoeoe")
+        
+        if boton.collidepoint(pygame.mouse.get_pos()):
+            hola=True
+
+        if hola==True:
+            ventana.fill('Blue')
+    ventana.blit(test_surface,(0,0))
+
+
+    #----Zona dibujo
+    boton=pygame.draw.rect(ventana, VERDE, (350, 150, 100, 50))
+
+
+    #---Zona texto
+    #Superdicie donde escribimos el texto
+
+
+    #Pegamos la superficie de texto1 en la ventana
+
+    
+    
+    pygame.display.flip()
+    pygame.time.delay(5)
+
+
+    reloj.tick(60)
+
+
+
+
+
+
+    pygame.display.flip()
+
+pygame.quit()

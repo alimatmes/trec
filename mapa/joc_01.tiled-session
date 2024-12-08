@@ -1,0 +1,137 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "prova.tmx",
+    "expandedProjectPaths": [
+        "autum/tile set/tiles",
+        ".",
+        "autum",
+        "autum/tile set"
+    ],
+    "file.lastUsedOpenFilter": "Todos los archivos (*)",
+    "fileStates": {
+        "C:/Users/armand/Downloads/tdr/tdr/mapa/joc.tsx": {
+            "scaleInDock": 1
+        },
+        "Desert.tsx": {
+            "scaleInDock": 1
+        },
+        "autum.tsx": {
+            "scaleInDock": 1
+        },
+        "autum/tile set/tiles/nd.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 2
+        },
+        "autum2.tsx": {
+            "scaleInDock": 1
+        },
+        "n_1.tmx": {
+            "scale": 0.5,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 1120,
+                "y": 752
+            }
+        },
+        "nivell.tmx": {
+            "scale": 0.4453125,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 1120.561403508772,
+                "y": 958.8771929824561
+            }
+        },
+        "nivell_1.tmx": {
+            "expandedObjectLayers": [
+                4
+            ],
+            "scale": 0.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 1128,
+                "y": 676
+            }
+        },
+        "ns.tmx": {
+            "scale": 1.2884375,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 479.6507397526074,
+                "y": 327.52849866601986
+            }
+        },
+        "patrons.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 0.25,
+            "scaleInEditor": 0.33
+        },
+        "prova.tmx": {
+            "expandedObjectLayers": [
+                5,
+                6
+            ],
+            "scale": 0.5,
+            "selectedLayer": 4,
+            "viewCenter": {
+                "x": 1248,
+                "y": 1206
+            }
+        },
+        "prova_mapa.tmx": {
+            "scale": 0.33,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 1942.4242424242425,
+                "y": 142.4242424242425
+            }
+        },
+        "sin nombre.tmx": {
+            "scale": 0.12884374999999998,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 4796.507397526075,
+                "y": 318.2148920688819
+            }
+        },
+        "sioooooon nombre.tmx": {
+            "scale": 1,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 1696,
+                "y": 1278
+            }
+        },
+        "tiles_out.tsx": {
+            "scaleInDock": 1
+        }
+    },
+    "last.externalTilesetPath": "C:/Users/armand/b01/mapa",
+    "last.imagePath": "C:/Users/armand/b01/mapa",
+    "map.height": 70,
+    "map.lastUsedFormat": "tmx",
+    "map.width": 70,
+    "openFiles": [
+        "sioooooon nombre.tmx",
+        "prova.tmx",
+        "patrons.tsx",
+        "nivell_1.tmx",
+        "n_1.tmx"
+    ],
+    "project": "joc_01.tiled-project",
+    "property.type": "string",
+    "recentFiles": [
+        "sioooooon nombre.tmx",
+        "n_1.tmx",
+        "nivell_1.tmx",
+        "patrons.tsx",
+        "prova.tmx",
+        "autum/tile set/tiles/nd.tsx",
+        "nivell.tmx",
+        "prova_mapa.tmx",
+        "ns.tmx",
+        "sin nombre.tmx"
+    ]
+}

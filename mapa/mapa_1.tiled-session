@@ -1,0 +1,53 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "ns.tmx",
+    "expandedProjectPaths": [
+    ],
+    "file.lastUsedOpenFilter": "Todos los archivos (*)",
+    "fileStates": {
+        "ns.tmx": {
+            "scale": 0.7501041666666666,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 525.260380502708,
+                "y": 318.62241355367314
+            }
+        },
+        "patrons.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1
+        },
+        "prova_mapa.tmx": {
+            "scale": 0.7501041666666666,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 414.6090820719345,
+                "y": 322.6218580752674
+            }
+        },
+        "sin nombre.tmx": {
+            "scale": 0.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 282,
+                "y": 150
+            }
+        }
+    },
+    "last.imagePath": "C:/Users/AlíciaMataMestres/Documents/tdr/mapa/swamp/3 Objects/Pointers",
+    "map.lastUsedFormat": "tmx",
+    "map.width": 30,
+    "openFiles": [
+        "ns.tmx"
+    ],
+    "project": "mapa_1.tiled-project",
+    "property.type": "bool",
+    "recentFiles": [
+        "ns.tmx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.type": 1
+}

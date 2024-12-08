@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../documentacio"
+		},
+		{
+			"path": "../fotos"
+		},
+		{
+			"path": "../mapa"
+		},
+		{
+			"path": "../personatges"
+		},
+		{
+			"path": "../text"
+		}
+	]
+}
