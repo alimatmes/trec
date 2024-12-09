@@ -22,6 +22,7 @@ class Jugador(Entitat):
 		self.ajupit = False
 	
 		self.vides = 3
+		self.puntuacio = 0
 
 		
 
@@ -102,7 +103,7 @@ class Jugador(Entitat):
 					if self.rect.top <= sprite.rect.bottom and self.old_rect.top >= sprite.old_rect.bottom:
 						self.rect.top = sprite.rect.bottom
 					self.pos.y = self.rect.y
-					self.direccio.y = 0 # que no es mogui en vertical, si no fa coses rares
+					self.direccio.y = 0 
 		
 		if self.a_terra and self.direccio.y != 0:   # si s'esta movent amunt o avall i toca a terra
 			self.a_terra = False   # no ha de tocar
@@ -192,13 +193,13 @@ class Jugador(Entitat):
 		if keys[pygame.K_SPACE] and self.pot_disparar:
 			if 'dret' in self.status:   # corre, salta, quiet
 				direccio = Vector2(1,0) 
-				y_offset = Vector2(-17,-30)
+				offset = Vector2(0,-30) # si s'autodispara, canviar offset_x
 			else:
 				direccio = Vector2(-1,0)
-				y_offset = Vector2(37,-30)
+				offset = Vector2(0,-30)
     
 			pos = self.rect.center + direccio * 60
-			self.dispara(pos + y_offset, direccio, self)
+			self.dispara(pos + offset, direccio, self)
 
 			self.pot_disparar = False
 			self.temps_dispar = pygame.time.get_ticks()

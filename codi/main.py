@@ -4,8 +4,9 @@ from confi import *
 from pytmx.util_pygame import load_pygame
 
 from player import Jugador
-from enemic import Enemic, Pinxo
+from enemic import Enemic, Pinxo, Moneda
 from tile import Tile,CollisionTile, PujaBaixa
+from finaljoc import Final
 
 from pygame.math import Vector2 as vector 
 from sobreposat import Sobreposat
@@ -92,6 +93,7 @@ class Principal:
 		self.bala_sprites = pygame.sprite.Group()   # Grup per a les bales que es disparen
 		self.enemic_sprites = pygame.sprite.Group()
 		self.vulnerable_sprites = pygame.sprite.Group()  # els que es poden fer mal i perdre salut
+		self.moneda_sprites = pygame.sprite.Group()
 		self.bala_imatge = pygame.image.load('../personatges/foc_enemic/tile000.png').convert_alpha()
 		self.bala_imatge = pygame.transform.scale_by(self.bala_imatge,0.5)
 		self.bala_imatge = pygame.transform.flip(self.bala_imatge,True,False)
@@ -136,7 +138,15 @@ class Principal:
 
 		
 		self.tope_rect_enemic_mobil = []
+		self.tope_final_joc = []   # Punts on pot acabar el joc
 		for obj in tmx_map.get_layer_by_name('entitats'):
+			if obj.name == 'moneda':
+				Moneda(
+					pos=(obj.x,obj.y-32),
+           			grups= [self.tots_sprites,self.moneda_sprites],
+              		dispara= self.dispara, 
+                	jugador= self.jugador,
+                 	collisio_sprites= self.collisio_sprites)
       
 			if obj.name == 'pinxo':
 				Pinxo(
@@ -162,6 +172,12 @@ class Principal:
 			if obj.name =='tope':
 				tope_rect = pygame.Rect(obj.x,obj.y,obj.width,obj.height)
 				self.tope_rect_enemic_mobil.append(tope_rect)  
+
+			if obj.name == 'finaljoc':
+				final_rect = pygame.Rect(obj.x,obj.y,obj.width,obj.height)
+				self.tope_final_joc.append(final_rect)  # afegeix a la llista
+
+
 		self.tope_rect_pujabaixa = []
 		for obj in tmx_map.get_layer_by_name('ascensors'):
 			if obj.name == 'pujabaixa':
@@ -169,7 +185,13 @@ class Principal:
 			else: #  si no es la plataforma de l'ascensor, dibuixa rectangle i l'afegeix a la llista
 				tope_rect = pygame.Rect(obj.x,obj.y,obj.width,obj.height)
 				self.tope_rect_pujabaixa.append(tope_rect)  # afegeix a la llista
-	
+	def collisio_final(self):
+     
+		for vora in self.tope_final_joc:  # Comprovem si xoca amb el rectangle de la capa "ascensors"
+				if self.jugador.rect.colliderect(vora): #
+					print("El joc ha acabat")
+					return True
+		return False
 
 
 	def collisio_bala(self):
@@ -183,6 +205,12 @@ class Principal:
 			if pygame.sprite.spritecollide(sprite, self.bala_sprites, True):
 				print("holaaa")
 				sprite.dany()
+
+	def collisio_monedes(self):
+		for mon in self.moneda_sprites.sprites():
+			if mon.rect.colliderect(self.jugador): # quan arriba als topes
+				self.jugador.puntuar(mon.valor)
+				mon.kill()
     
 	def collisio_enemic_mobil(self):
 		
@@ -254,6 +282,10 @@ class Principal:
    
 			self.collisio_bala()
 			self.collisio_enemic_mobil()
+			self.collisio_monedes()
+			if self.collisio_final():
+				final= Final()
+				final.run()
 			self.tots_sprites.dibuixa_sprites(self.jugador, self.mapx, self.mapy)
 
 			self.sobreposat.mostra()

@@ -99,6 +99,10 @@ class Entitat(pygame.sprite.Sprite):
             self.salut -= 1
             self.es_vulnerable = False
             self.temps_collisio = pygame.time.get_ticks()  # temps actual
+    def puntuar(self,valor):
+        
+        
+        self.puntuacio += valor
         
     def comprova_mort(self):
         if self.salut <=0:

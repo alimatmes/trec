@@ -1,8 +1,7 @@
 import pygame,sys
 from confi import *
-from main import Principal
 
-class Menu:
+class Final:
     def __init__(self):
         
         pygame.init()
@@ -30,7 +29,8 @@ class Menu:
         ventana.blit (introduccio_3, (600, 450))
         
         # self.musica = pygame.mixer.Sound('../musica/000001.mp3')
-        # self.musica.play(loops = -1)   
+        # self.musica.play(loops = -1)
+
        
     def run (self):
         while True:
@@ -41,8 +41,8 @@ class Menu:
                     sys.exit()
                 keys = pygame.key.get_pressed()
 				# horizontal input 
-                if keys[pygame.K_SPACE]:    
-                    print ("a JUGAR!!!!!!")
+                if keys[pygame.K_SPACE]: 
+                    # self.musica.stop()   
                     principal = Principal()
                     principal.run()
                     
@@ -50,8 +50,3 @@ class Menu:
                 
 
             pygame.display.update()
-
-if __name__ == '__main__': #això és per asegurar que això nomes s'executa en aquest arxiu
-	
-	menu = Menu()
-	menu.run()

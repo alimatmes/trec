@@ -1,4 +1,4 @@
-import pygame 
+import pygame,random
 from random import choice
 from entitat import Entitat
 from confi import * 
@@ -75,6 +75,37 @@ class Pinxo(Entitat) :
         self.animacions['esquerra'] = [
             pygame.image.load('../mapa/autum2/pincho.png').convert_alpha(),
             pygame.image.load('../mapa/autum2/pincho.png').convert_alpha()]
+		
+
+
+class Moneda(Entitat):
+    def __init__(self, pos, grups, dispara, jugador, collisio_sprites):
+        super().__init__(pos, grups, collisio_sprites,dispara)
+        
+        
+        # aLeatori
+        
+        resultat = random.choice([True, False])
+        
+        if resultat:  # dorat
+            self.status = 'esquerra'
+            self.valor=10
+        else:  # plata
+            self.status = 'dreta'
+            self.valor=5
+        pass
+    def import_assets(self):
+        
+        path="../mapa/monedes/"
+        
+		
+        self.animacions['esquerra'] = [pygame.image.load(f'{path}gold_coin_0{frame}.png').convert_alpha() for frame in range(1,4)]
+        
+        
+        self.animacions['dreta'] = [pygame.image.load(f'{path}silver_coin_0{frame}.png').convert_alpha() for frame in range(1,4)]
+        
+    def update(self,dt):     	
+      	self.animar(dt)
 
 
 
