@@ -23,7 +23,7 @@ class TotsSprites(pygame.sprite.Group):
 		self.cel_davant = pygame.image.load('../personatges/background/fg_sky.png').convert_alpha()
 		self.cel_fons = pygame.image.load('../personatges/background/bg_sky.png').convert_alpha()
   
-		tmx_map = load_pygame('../mapa/prova.tmx') # els dos punts es per a tirar enrere de la carpeta
+		tmx_map = load_pygame('../mapa/n_1.tmx') # els dos punts es per a tirar enrere de la carpeta
   
 		self.padding = BASE/2
 		self.ample_cel = self.cel_fons.get_width()
