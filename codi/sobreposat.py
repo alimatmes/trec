@@ -30,5 +30,5 @@ class Sobreposat:
         punts = self.font_salut.render('Punts: ' , 1, '#664e1b') 
         self.imatge_display.blit (punts, (470,30))
         point = str(self.jugador.puntuacio)
-        punts = self.font_punts.render(point , 1, '#33334b') 
+        punts = self.font_punts.render(point , 1, 'White') 
         self.imatge_display.blit (punts, (590,34))

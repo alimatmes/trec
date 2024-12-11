@@ -20,7 +20,7 @@ class Entitat(pygame.sprite.Sprite):
         self.rect = self.image.get_rect(topleft = pos)
         self.status = 'dreta'
         
-
+        self.jugador = None
 
         self.z = CAPES['principal']
 
@@ -105,7 +105,9 @@ class Entitat(pygame.sprite.Sprite):
         self.puntuacio += valor
         
     def comprova_mort(self):
+
         if self.salut <=0:
+            self.jugador.puntuar(20)
             self.kill()
         
         

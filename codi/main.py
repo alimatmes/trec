@@ -114,7 +114,7 @@ class Principal:
 
 	def setup(self):
 		
-		tmx_map = load_pygame('../mapa/prova.tmx') # els dos punts es per a tirar enrere de la carpeta
+		tmx_map = load_pygame('../mapa/n_1.tmx') # els dos punts es per a tirar enrere de la carpeta
 		
 		self.tmx_map = tmx_map
 		patro_ample = tmx_map.tilewidth  # Ancho de cada tile en píxeles
