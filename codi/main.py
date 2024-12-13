@@ -245,14 +245,26 @@ class Principal:
 						plat.posicio.y = plat.rect.y
 						plat.direccio.y = -1
 			
-			if plat.rect.bottom == self.jugador.rect.top and self.jugador.a_terra == True:
+			if plat.rect.bottom == self.jugador.rect.top or plat.rect.bottom == self.jugador.rect.top + 1 : #and self.jugador.a_terra == True:
 				
-				if self.jugador.rect.centerx >= plat.rect.left and self.jugador.rect.centerx <= plat.rect.right:
+				if self.jugador.rect.left >= plat.rect.left and self.jugador.rect.left <= plat.rect.right:
 					plat.rect.bottom = self.jugador.rect.top
 					plat.posicio.y = plat.rect.y
 					plat.direccio.y = -1
-			
-			# Si el jugador no esta a terra i la plataforma baixa, l'arrastra
+					print(self.jugador.rect.left)
+					print(plat.rect.left)
+				elif self.jugador.rect.right >= plat.rect.left and self.jugador.rect.right <= plat.rect.right:
+					plat.rect.bottom = self.jugador.rect.top
+					plat.posicio.y = plat.rect.y
+					# self.jugador.rect.top = plat.rect.bottom
+					plat.direccio.y = -1
+				elif self.jugador.rect.centerx >= plat.rect.left and self.jugador.rect.centerx <= plat.rect.right:
+					plat.rect.bottom = self.jugador.rect.top
+					plat.posicio.y = plat.rect.y
+					# self.jugador.rect.top = plat.rect.bottom
+					plat.direccio.y = -1
+			# Si el jugador no
+			#  esta a terra i la plataforma baixa, l'arrastra
 			# Com arreglar-ho?
 	
 			# no funciona 
