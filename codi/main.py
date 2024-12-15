@@ -288,7 +288,8 @@ class Principal:
 					sys.exit()
 
 			# delta time 
-			dt = self.rellotge.tick() / 1000
+			dt = self.rellotge.tick(60) / 1000
+			print(dt)
 			self.display_surface.fill((135, 206, 235))
 
 			self.collisio_pujabaixa()
