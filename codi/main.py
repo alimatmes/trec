@@ -82,6 +82,8 @@ class Principal:
 	def __init__(self): #constructor quan creo l'objecte
 		
 		pygame.init()
+  
+  
 		self.display_surface = pygame.display.set_mode((BASE, ALTURA))
 		pygame.display.set_caption('TDR Alícia Mata')
 		self.rellotge = pygame.time.Clock()
@@ -302,7 +304,9 @@ class Principal:
 
 			self.sobreposat.mostra()
 		
-        
+  
+  
+				
 			# actualitza display 
 			pygame.display.update()
 
