@@ -24,7 +24,11 @@ class Jugador(Entitat):
 		self.vides = 3
 		self.puntuacio = 0
 
-		
+		self.salut=25
+
+		self.musica_repareix = pygame.mixer.Sound('../musica/more_jugador2.wav')
+
+            
 
 	
     ## Carrega tots els sprites del jugador  <-- 
@@ -217,15 +221,15 @@ class Jugador(Entitat):
 							  # perque si és el jugador qui more acaba diferent
 		if self.salut <= 0:
 			if self.vides > 0:
-				print("oeoeoeoe")
 				self.vides -= 1
 				self.salut=self.salut_inicial
-
-				print(self.salut)		
-				print (self.rect.topleft)
+				
 				self.rect = self.image.get_rect(topleft = self.posicio_inicial)
 				self.pos.x = self.rect.x
 				self.pos.y = self.rect.y
+
+				self.musica_repareix.play()
+
 			else:
 				pygame.quit()
 				sys.exit()
@@ -240,7 +244,7 @@ class Jugador(Entitat):
 		self.animar(dt)
 		self.blink()
 
-  
+		print(self.pos.y)
 		self.temporitzador_dispars()
 		self.temporitzador_inmortalitat()
   

@@ -19,9 +19,12 @@ class TotsSprites(pygame.sprite.Group):
 		super().__init__()
 		self.display_surface = pygame.display.get_surface()
 		self.offset = vector()
-  
+
+		# self.muntanyes_fons = pygame.image.load('../mapa/autum2/far_mountains.png').convert_alpha()
+		# pygame.transform.scale_by(self.muntanyes_fons,0.5)
 		self.cel_davant = pygame.image.load('../personatges/background/fg_sky.png').convert_alpha()
 		self.cel_fons = pygame.image.load('../personatges/background/bg_sky.png').convert_alpha()
+
   
 		tmx_map = load_pygame('../mapa/n_1.tmx') # els dos punts es per a tirar enrere de la carpeta
   
@@ -58,8 +61,10 @@ class TotsSprites(pygame.sprite.Group):
 		for x in range(self.num_cels):
 			# exercise: place all of the skies in the display surface 
 			x_pos = -self.padding + (x * self.ample_cel)
-			self.display_surface.blit(self.cel_fons,(x_pos - self.offset.x / 2.5, 100 - self.offset.y / 2.5))
-			self.display_surface.blit(self.cel_davant,(x_pos - self.offset.x / 2, 100 - self.offset.y / 2))
+			self.display_surface.blit(self.cel_fons,(x_pos - self.offset.x / 2.5, 200 - self.offset.y / 2.5))
+			self.display_surface.blit(self.cel_davant,(x_pos - self.offset.x / 2, 600 - self.offset.y / 2))
+
+			# self.display_surface.blit(self.muntanyes_fons,(x_pos - self.offset.x / 2, 2000-self.offset.y))
 
 
 		# print (self.offset)
@@ -106,8 +111,14 @@ class Principal:
 		self.setup()#per a dibuixar el mapa (linea: 75)
 		self.sobreposat = Sobreposat(self.jugador)
   
-		self.musica = pygame.mixer.Sound('../musica/Village4.mp3')
+		self.musica = pygame.mixer.Sound('../musica/Retro8.wav')
+		self.musica.set_volume(0.6)  # Volumen bajo al 30%
+
 		self.musica.play(loops = -1)
+
+		self.efecte_moneda = pygame.mixer.Sound('../musica/coin3.mp3')
+		self.efecte_dispar = pygame.mixer.Sound('../musica/shot.mp3')
+
 
 		# sprites 
 		# self.jugador = Jugador((100,40),self.tots_sprites, self.collisio_sprites)
@@ -205,13 +216,13 @@ class Principal:
 		# entitats
 		for sprite in self.vulnerable_sprites.sprites():
 			if pygame.sprite.spritecollide(sprite, self.bala_sprites, True):
-				print("holaaa")
 				sprite.dany()
 
 	def collisio_monedes(self):
 		for mon in self.moneda_sprites.sprites():
 			if mon.rect.colliderect(self.jugador): # quan arriba als topes
 				self.jugador.puntuar(mon.valor)
+				self.efecte_moneda.play()
 				mon.kill()
     
 	def collisio_enemic_mobil(self):
@@ -277,7 +288,10 @@ class Principal:
 			# 		plat.posicio.y = plat.rect.y
 			# 		plat.direccio.y = -1
 	def dispara(self, pos, direccio, entitat):
+
 		Bala(pos, self.bala_imatge, direccio, [self.tots_sprites, self.bala_sprites])
+		self.efecte_dispar.play()
+
 	
 	def run(self):
 		while True:
@@ -299,7 +313,8 @@ class Principal:
 			self.collisio_enemic_mobil()
 			self.collisio_monedes()
 			if self.collisio_final():
-				final= Final()
+				self.musica.stop()
+				final= Final(self.jugador.puntuacio)
 				final.run()
 			self.tots_sprites.dibuixa_sprites(self.jugador, self.mapx, self.mapy)
 

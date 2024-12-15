@@ -29,8 +29,8 @@ class Menu:
         introduccio_3=fuente_introduccio_3.render('TREC Alícia Mata (2024)', 1, 'Black')
         ventana.blit (introduccio_3, (600, 450))
         
-        # self.musica = pygame.mixer.Sound('../musica/000001.mp3')
-        # self.musica.play(loops = -1)   
+        self.musica = pygame.mixer.Sound('../musica/Retro1.wav')
+        self.musica.play(loops = -1)   
        
     def run (self):
         while True:
@@ -43,6 +43,10 @@ class Menu:
 				# horizontal input 
                 if keys[pygame.K_SPACE]:    
                     print ("a JUGAR!!!!!!")
+                    self.musica.stop()  # parem la música
+                    # from finaljoc import Final
+                    # final = Final(0)
+                    # final.run()
                     principal = Principal()
                     principal.run()
                     

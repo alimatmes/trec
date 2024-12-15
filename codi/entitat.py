@@ -49,6 +49,11 @@ class Entitat(pygame.sprite.Sprite):
         self.es_vulnerable = True
         self.temps_collisio = None
         self.durada_inmortalitat = 800
+
+        self.impacta_bala = pygame.mixer.Sound('../musica/impacte_bala.wav')
+        self.more_enemic = pygame.mixer.Sound('../musica/more_enemic.wav')
+
+
     
     # temps que si hi ha collisio , no compta
     # quan enemic xoca, es fan multiples col·lisions, i es more ràpid
@@ -96,9 +101,14 @@ class Entitat(pygame.sprite.Sprite):
         
     def dany(self):
         if self.es_vulnerable:   
+            # self.salut -= 1
             self.salut -= 1
             self.es_vulnerable = False
             self.temps_collisio = pygame.time.get_ticks()  # temps actual
+            self.impacta_bala.play()
+
+
+
     def puntuar(self,valor):
         
         
@@ -108,6 +118,9 @@ class Entitat(pygame.sprite.Sprite):
 
         if self.salut <=0:
             self.jugador.puntuar(20)
+            self.more_enemic.play()
+
+
             self.kill()
         
         

@@ -20,15 +20,16 @@ class Sobreposat:
             y = 40
             self.imatge_display.blit(self.imatge_salut,(x,y))
 
+        espai_salut = self.jugador.salut * (self.imatge_salut.get_width() + 4)
         vides = self.font_salut.render('Vides', 1, '#664eff') 
-        self.imatge_display.blit (vides, (275,30))
+        self.imatge_display.blit (vides, (175+espai_salut,30))
         for h in range(self.jugador.vides):
-            x = 390 + h * (self.imatge_vides.get_width() + 4)
+            x = 290 + h * (self.imatge_vides.get_width() + 4)
             y = 40
-            self.imatge_display.blit(self.imatge_vides,(x,y))
+            self.imatge_display.blit(self.imatge_vides,(x + espai_salut,y))
 
         punts = self.font_salut.render('Punts: ' , 1, '#664e1b') 
-        self.imatge_display.blit (punts, (470,30))
+        self.imatge_display.blit (punts, (370 + espai_salut,30))
         point = str(self.jugador.puntuacio)
         punts = self.font_punts.render(point , 1, 'White') 
-        self.imatge_display.blit (punts, (590,34))
+        self.imatge_display.blit (punts, (490 + espai_salut,34))
