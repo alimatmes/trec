@@ -15,7 +15,7 @@ class Jugador(Entitat):
 	
 		self.collisio_sprites = collisio_sprites
 
-		self.gravetat = 15
+		self.gravetat = 20
 		self.velocitat_salt = 560
 		self.a_terra  = False
 		self.movent_terra = None   # Per a evitar l'efecte extranys quan el jugador baixa a l'ascensor
