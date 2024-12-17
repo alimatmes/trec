@@ -24,7 +24,7 @@ class Jugador(Entitat):
 		self.vides = 3
 		self.puntuacio = 0
 
-		self.salut=25
+		self.salut=5
 
 		self.musica_repareix = pygame.mixer.Sound('../musica/more_jugador2.wav')
 
