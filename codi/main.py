@@ -90,7 +90,7 @@ class Principal:
   
   
 		self.display_surface = pygame.display.set_mode((BASE, ALTURA))
-		pygame.display.set_caption('TDR Alícia Mata')
+		pygame.display.set_caption('El viatge de Dante')
 		self.rellotge = pygame.time.Clock()
 
 		# grups --> ara la classe TotsSprites
