@@ -48,7 +48,7 @@ class Jugador(Entitat):
 		self.animacions['salt_esquerra'] = [pygame.transform.flip(image,True,False) for image in self.animacions['salt_dreta'] ]
 		self.animacions['caient_dreta'] = [pygame.image.load(f'{path}personatge_salt/caient_dreta.png').convert_alpha()]
 		self.animacions['caient_esquerra'] = [pygame.transform.flip(image,True,False) for image in self.animacions['caient_dreta'] ]
-		# foc animacions   -> de moment no ho faig. No es nota massa
+		# foc animacions   -> de moment no ho faig. 
 		# self.animacions['foc_esquerra'] = [pygame.image.load(f'{path}foc_enemic/tile00{frame}.png').convert_alpha() for frame in range(6)]
 		# self.animacions['foc_esquerra'] = [pygame.transform.scale_by(image,0.4) for image in self.animacions['foc_esquerra'] ]  # escalo
 		# self.animacions['foc_dreta'] = [pygame.transform.flip(image,True,False) for image in self.animacions['foc_esquerra'] ]
@@ -244,7 +244,6 @@ class Jugador(Entitat):
 		self.animar(dt)
 		self.blink()
 
-		print(self.pos.y)
 		self.temporitzador_dispars()
 		self.temporitzador_inmortalitat()
   

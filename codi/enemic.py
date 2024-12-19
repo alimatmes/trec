@@ -87,7 +87,7 @@ class Moneda(Entitat):
         
         resultat = random.choice([True, False])
         
-        if resultat:  # dorat
+        if resultat:  # daurat
             self.status = 'esquerra'
             self.valor=10
         else:  # plata

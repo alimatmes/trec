@@ -20,8 +20,6 @@ class TotsSprites(pygame.sprite.Group):
 		self.display_surface = pygame.display.get_surface()
 		self.offset = vector()
 
-		# self.muntanyes_fons = pygame.image.load('../mapa/autum2/far_mountains.png').convert_alpha()
-		# pygame.transform.scale_by(self.muntanyes_fons,0.5)
 		self.cel_davant = pygame.image.load('../personatges/background/fg_sky.png').convert_alpha()
 		self.cel_fons = pygame.image.load('../personatges/background/bg_sky.png').convert_alpha()
 
@@ -175,7 +173,7 @@ class Principal:
            			grups = [self.tots_sprites,self.vulnerable_sprites],
               		collisio_sprites = self.collisio_sprites,
                 	dispara= self.dispara)
-			if obj.name == 'enemic_mobil':   # No se si dispararà
+			if obj.name == 'enemic_mobil':  
 				Enemic(
         			pos=(obj.x,obj.y),
            			grups= [self.tots_sprites,self.enemic_sprites,self.vulnerable_sprites],
@@ -303,7 +301,6 @@ class Principal:
 
 			# delta time 
 			dt = self.rellotge.tick(60) / 1000
-			print(dt)
 			self.display_surface.fill((135, 206, 235))
 
 			self.collisio_pujabaixa()

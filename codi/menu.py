@@ -42,7 +42,7 @@ class Menu:
                 keys = pygame.key.get_pressed()
 				# horizontal input 
                 if keys[pygame.K_SPACE]:    
-                    print ("a JUGAR!!!!!!")
+                    print ("A JUGAR!!!!!!")
                     principal = Principal()
                     principal.run()
                     

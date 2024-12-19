@@ -83,7 +83,7 @@ class Entitat(pygame.sprite.Sprite):
     def import_assets(self):
         pass
     
-    def blink(self):  # parcialment by chat gpt
+    def blink(self):  
         if not self.es_vulnerable:
             if self.wave_value():
                 mask = pygame.mask.from_surface(self.image)
@@ -91,7 +91,7 @@ class Entitat(pygame.sprite.Sprite):
                 superficie_blanca.set_colorkey((0,0,0))
                 self.image = superficie_blanca
 
-    def wave_value(self):  # parcialment by chat gpt
+    def wave_value(self):  
         value = sin(pygame.time.get_ticks())
         
         if value >= 0: 
